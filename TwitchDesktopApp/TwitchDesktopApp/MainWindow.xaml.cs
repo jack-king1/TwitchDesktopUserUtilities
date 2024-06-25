@@ -17,6 +17,8 @@ namespace TwitchDesktopApp
     public partial class MainWindow : Window
     {
         bool connected = false;
+        const int WINDOW_WIDTH = 800;
+        const int WINDOW_HEIGHT = 450;
         public MainWindow()
         {
             InitializeComponent();
@@ -25,6 +27,11 @@ namespace TwitchDesktopApp
         private void btnRun_Click(object sender, RoutedEventArgs e)
         {
             connected = true;
+        }
+
+        private void MenuBar_Loaded(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

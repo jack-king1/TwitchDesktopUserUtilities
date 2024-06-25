@@ -4,6 +4,10 @@
              xmlns:local="clr-namespace:TwitchDesktopApp"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
+        <ResourceDictionary>
+            <BitmapImage x:Key="Power" UriSource="pack://application:,,,/TwitchDesktopApp;component/Assets/power.png"></BitmapImage>
+            <BitmapImage x:Key="Home" UriSource="./Assets/home.png"></BitmapImage>
+        </ResourceDictionary>
          
     </Application.Resources>
 </Application>

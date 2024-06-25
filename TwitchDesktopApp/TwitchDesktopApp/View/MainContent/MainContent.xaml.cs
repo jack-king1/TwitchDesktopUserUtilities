@@ -13,26 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace TwitchDesktopApp.View.UserControls
+namespace TwitchDesktopApp.View.MainContent
 {
     /// <summary>
-    /// Interaction logic for MenuBar.xaml
+    /// Interaction logic for MainContent.xaml
     /// </summary>
-    public partial class MenuBar : UserControl
+    public partial class MainContent : UserControl
     {
-        public MenuBar()
+        public MainContent()
         {
             InitializeComponent();
-        }
-
-        private void MenuBtn_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
