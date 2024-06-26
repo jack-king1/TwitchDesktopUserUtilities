@@ -4,8 +4,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TwitchDesktopApp.View.MainContent"
+             xmlns:viewModels="clr-namespace:TwitchDesktopApp.ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="600">
+
     
     <Grid Background="#161616">
         <Grid.ColumnDefinitions>
@@ -13,9 +15,19 @@
             <ColumnDefinition Width="10*" />
         </Grid.ColumnDefinitions>
 
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25"></RowDefinition>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Foreground="White">UserName</TextBlock>
+                <TextBox Grid.Column="0" Width="179" />
+                <Button Command="{Binding AddUserCommand}">Submit</Button>
+            </StackPanel>
+        </Grid>
+
         <Grid Grid.Column="1" >
             <Image Source="pack://application:,,,/TwitchDesktopApp;component/Assets/power.png" Width="34" Height="34" VerticalAlignment="Top" Margin="0,20,0,0" />
-
         </Grid>
     </Grid>
 </UserControl>

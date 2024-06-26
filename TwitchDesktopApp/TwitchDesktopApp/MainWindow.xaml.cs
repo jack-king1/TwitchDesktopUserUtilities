@@ -8,6 +8,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TwitchDesktopApp.Services;
+using TwitchDesktopApp.ViewModel;
+
 
 namespace TwitchDesktopApp
 {
@@ -22,6 +25,8 @@ namespace TwitchDesktopApp
         public MainWindow()
         {
             InitializeComponent();
+            TwitchAPI api = new TwitchAPI();
+           
         }
 
         private void btnRun_Click(object sender, RoutedEventArgs e)

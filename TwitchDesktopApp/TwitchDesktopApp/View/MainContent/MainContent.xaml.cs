@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TwitchDesktopApp.ViewModel;
 
 namespace TwitchDesktopApp.View.MainContent
 {
@@ -23,6 +24,7 @@ namespace TwitchDesktopApp.View.MainContent
         public MainContent()
         {
             InitializeComponent();
+            DataContext = new UserDataViewModel();
         }
     }
 }
