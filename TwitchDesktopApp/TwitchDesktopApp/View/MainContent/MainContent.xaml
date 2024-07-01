@@ -7,6 +7,10 @@
              xmlns:viewModels="clr-namespace:TwitchDesktopApp.ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="600">
+    
+    <UserControl.DataContext>
+        <viewModels:UserDataViewModel />
+    </UserControl.DataContext>
 
     
     <Grid Background="#161616">
@@ -16,15 +20,13 @@
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="25"></RowDefinition>
-            </Grid.RowDefinitions>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Foreground="White">UserName</TextBlock>
-                <TextBox Grid.Column="0" Width="179" />
-                <Button Command="{Binding AddUserCommand}">Submit</Button>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="Username" Foreground="White" FontSize="30" />
+                <TextBox Text="{Binding Username2, UpdateSourceTrigger=PropertyChanged}" Width="200" Height="50" />
+                <Button Height="20" Content="Submit" Background="Green" Foreground="Wheat" />
             </StackPanel>
         </Grid>
+
 
         <Grid Grid.Column="1" >
             <Image Source="pack://application:,,,/TwitchDesktopApp;component/Assets/power.png" Width="34" Height="34" VerticalAlignment="Top" Margin="0,20,0,0" />

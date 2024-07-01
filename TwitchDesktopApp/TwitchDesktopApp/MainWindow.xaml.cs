@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TwitchDesktopApp.Model.Database;
 using TwitchDesktopApp.Services;
 using TwitchDesktopApp.ViewModel;
 
@@ -24,9 +25,7 @@ namespace TwitchDesktopApp
         const int WINDOW_HEIGHT = 450;
         public MainWindow()
         {
-            InitializeComponent();
-            TwitchAPI api = new TwitchAPI();
-           
+            InitializeComponent();        
         }
 
         private void btnRun_Click(object sender, RoutedEventArgs e)
@@ -34,9 +33,5 @@ namespace TwitchDesktopApp
             connected = true;
         }
 
-        private void MenuBar_Loaded(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }
