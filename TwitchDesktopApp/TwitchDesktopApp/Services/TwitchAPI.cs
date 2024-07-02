@@ -6,45 +6,59 @@ using System.Threading.Tasks;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text.Json;
+using TwitchDesktopApp.Model.Users;
+using Newtonsoft.Json;
 
 namespace TwitchDesktopApp.Services
 {
-    class TwitchAPI
+    public static class TwitchAPI
     {
         public static bool twitchAPIInitialised = false;
+        public static UserAdmin adminUser;
 
-        private string twitchClient = "";
-        private string twitchSecret = "";
-        HttpClient client = new HttpClient();
-        private string token = "";
-        private string userData = "";
-        public TwitchAPI() {
+        private static string twitchClient = "";
+        private static string twitchSecret = "";
+        readonly static HttpClient client = new HttpClient();
+        private static string token = "";
+        private static string userData = "";
+
+
+         static TwitchAPI() {
             twitchSecret = Environment.GetEnvironmentVariable("TWITCH_SECRET");
             twitchClient = Environment.GetEnvironmentVariable("TWITCH_CLIENTID");
-            initAPI();
         }
 
 
-        public string TwitchClient { get => twitchClient; set => twitchClient = value; }
-        public string TwitchSecret { get => twitchSecret; set => twitchSecret = value; }
+        public static string TwitchClient { get => twitchClient; set => twitchClient = value; }
+        public static string TwitchSecret { get => twitchSecret; set => twitchSecret = value; }
 
-        private async void initAPI()
+        public static async void initAPIAdmin(string username = "")
         {
-            //setToken
-            JsonDocument rawJson = JsonDocument.Parse(await getOauthToken());
-            JsonElement root = rawJson.RootElement;
-            token = root.GetProperty("access_token").ToString();
-            Console.WriteLine(token);
+            //Load my username from file if there is one using file streamer class.
 
-            //Get User Data Test.
-            JsonDocument rawUserJson = JsonDocument.Parse(await getUserData("shroud"));
-            JsonElement rootUserData = rawUserJson.RootElement;
-            userData = root.GetProperty("access_token").ToString();
-            Console.WriteLine(token);
+            if(username != "")
+            {
+                //setToken
+                JsonDocument rawJson = JsonDocument.Parse(await getOauthToken());
+                JsonElement root = rawJson.RootElement;
+                token = root.GetProperty("access_token").ToString();
+                Console.WriteLine(token);
+
+                //Get User Data Test.
+                JsonDocument rawUserJson = JsonDocument.Parse(await getUserData(username));
+                JsonElement rootUserData = rawUserJson.RootElement;
+
+                //convert json object to TwitchUserData object.
+                TwitchUserDataList adminData = JsonConvert.DeserializeObject<TwitchUserDataList>(rootUserData.ToString());
+
+                userData = root.GetProperty("access_token").ToString();
+                Console.WriteLine(token);
+                adminUser = new UserAdmin(adminData);
+            }
         }
 
         //http request
-        async private Task<string> getOauthToken()
+        async static private Task<string> getOauthToken()
         {
             // Define endpoint and parameters
             string apiUrl = "https://id.twitch.tv/oauth2/token";
@@ -94,7 +108,7 @@ namespace TwitchDesktopApp.Services
         }
 
         //getUserData
-        async private Task<string> getUserData(string username)
+        async static private Task<string> getUserData(string username)
         {
             // Define endpoint and parameters
             string apiUrl = $"https://api.twitch.tv/helix/users?login={username}";

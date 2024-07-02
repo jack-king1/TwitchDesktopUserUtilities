@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TwitchDesktopApp.Model.Users
 {
-    internal class UserViewer : UserBase
+    public class UserViewer : UserBase
     { 
 
         public UserViewer() { }
@@ -15,11 +15,6 @@ namespace TwitchDesktopApp.Model.Users
         {
             TwitchID = id;
             TwitchUsername = username;
-        }
-
-        public override void SaveUserToDB()
-        {
-            throw new NotImplementedException();
         }
     }
 }

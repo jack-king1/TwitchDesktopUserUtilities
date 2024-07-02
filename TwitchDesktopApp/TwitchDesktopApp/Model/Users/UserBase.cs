@@ -10,10 +10,11 @@ namespace TwitchDesktopApp.Model.Users
 {
     //A class to hold data about the loggedin twitch user.
     //E.g. username, picture, current stream
-    abstract class UserBase
+    public abstract class UserBase
     {
 
         private int _id = -1;
+        private TwitchUserDataList data;
 
         [BsonId]
         public int TwitchID
@@ -36,7 +37,15 @@ namespace TwitchDesktopApp.Model.Users
             }
         }
 
-
-        public abstract void SaveUserToDB();
+        public TwitchUserDataList Data
+        {
+            get { return data; }
+            set
+            {
+                data = value;
+                TwitchID = int.Parse(Data.Data[0].id);
+                TwitchUsername = Data.Data[0].display_name;
+            }
+        }
     }
 }

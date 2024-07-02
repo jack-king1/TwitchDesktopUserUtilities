@@ -6,11 +6,14 @@ using System.Threading.Tasks;
 
 namespace TwitchDesktopApp.Model.Users
 {
-    internal class UserAdmin : UserBase
+    public class UserAdmin : UserBase
     {
-        public override void SaveUserToDB()
+        public UserAdmin() { }
+
+        public UserAdmin(TwitchUserDataList _data)
         {
-            throw new NotImplementedException();
+            Data = _data;
         }
+
     }
 }

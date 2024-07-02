@@ -11,13 +11,19 @@ namespace TwitchDesktopApp.Model.Database
 {
     public static class Database
     {
+        static string connectionString = @"C:\MyData.db";
         public static void CreateDB()
         {
-            // Specify the database file path
-            string connectionString = @"C:\MyData.db";
+            // Create or open a LiteDB database
+            using (var db = new LiteDatabase(connectionString))
+            {
+                // Access a collection (or create, if it doesn't exist)
+                var col = db.GetCollection<UserViewer>("Viewers");
+            }
+        }
 
-            UserViewer viewer = new UserViewer("shroud", 1);
-
+        public static bool AddViewerToDB(UserViewer viewer)
+        {
             // Create or open a LiteDB database
             using (var db = new LiteDatabase(connectionString))
             {
@@ -32,12 +38,15 @@ namespace TwitchDesktopApp.Model.Database
 
                     // Print a success message
                     Console.WriteLine("Viewer inserted into the database with TwitchID: " + viewer.TwitchID);
+                    return true;
                 }
                 else
                 {
                     Console.WriteLine("A viewer with the same TwitchID already exists.");
+                    return false;
                 }
             }
+
         }
     }
 

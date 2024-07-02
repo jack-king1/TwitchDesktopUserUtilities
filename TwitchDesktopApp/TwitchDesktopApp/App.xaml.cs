@@ -2,6 +2,7 @@
 using System.Data;
 using System.Windows;
 using TwitchDesktopApp.Model.Database;
+using TwitchDesktopApp.Model.Users;
 using TwitchDesktopApp.Services;
 
 namespace TwitchDesktopApp
@@ -11,10 +12,12 @@ namespace TwitchDesktopApp
     /// </summary>
     public partial class App : Application
     {
+        UserAdmin? admin;
+
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-            TwitchAPI api = new TwitchAPI();
+            TwitchAPI.initAPIAdmin("lilkinggy");
             //Init database.
             Database.CreateDB();
         }
