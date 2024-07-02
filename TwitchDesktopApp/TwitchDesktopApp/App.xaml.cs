@@ -17,7 +17,6 @@ namespace TwitchDesktopApp
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-            TwitchAPI.initAPIAdmin("lilkinggy");
             //Init database.
             Database.CreateDB();
         }

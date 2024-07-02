@@ -41,18 +41,15 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <Image Source="pack://application:,,,/TwitchDesktopApp;component/Assets/home.png" Margin="0,10,0,0" Width="28" Height="28" VerticalAlignment="Center" Grid.Column="0" Grid.Row="0" />
-        <Button Foreground="White" Style="{StaticResource MenuBtnStyle}" Margin="0,10,0,0" Height="34" VerticalAlignment="Center" HorizontalAlignment="Stretch" Grid.Column="1">
+        <Button Foreground="White" Style="{StaticResource MenuBtnStyle}" Margin="0,10,0,0" Height="34" VerticalAlignment="Center" HorizontalAlignment="Stretch" Grid.Column="1" FontSize="20">
             Home
         </Button>
 
-        <Image Source="pack://application:,,,/TwitchDesktopApp;component/Assets/home.png" Margin="0,10,0,0" Width="28" Height="28" VerticalAlignment="Center" Grid.Column="0" Grid.Row="1" />
-        <Button Foreground="White" Style="{StaticResource MenuBtnStyle}" Margin="0,10,0,0" Height="34" VerticalAlignment="Center" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="1">
+        <Button Foreground="White" Style="{StaticResource MenuBtnStyle}" Margin="0,10,0,0" Height="34" VerticalAlignment="Center" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="1" FontSize="20">
             Setup
         </Button>
 
-        <Image Source="pack://application:,,,/TwitchDesktopApp;component/Assets/home.png" Margin="0,10,0,0" Width="28" Height="28" VerticalAlignment="Center" Grid.Column="0" Grid.Row="2" />
-        <Button Foreground="White" Style="{StaticResource MenuBtnStyle}" Margin="0,10,0,0" Height="34" VerticalAlignment="Center" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="2">
+        <Button Foreground="White" Style="{StaticResource MenuBtnStyle}" Margin="0,10,0,0" Height="34" VerticalAlignment="Center" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="2" FontSize="20">
             Users
         </Button>
 

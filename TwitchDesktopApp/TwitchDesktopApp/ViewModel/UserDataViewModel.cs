@@ -2,6 +2,7 @@
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using TwitchDesktopApp.Core.Commands;
+using TwitchDesktopApp.Services;
 
 namespace TwitchDesktopApp.ViewModel
 {
@@ -18,19 +19,7 @@ namespace TwitchDesktopApp.ViewModel
             set
             {
                 _username = value;
-            }
-        }
-
-        private string _username2;
-        public string Username2
-        {
-            get
-            {
-                return _username2;
-            }
-            set
-            {
-                _username2 = value;
+                OnPropertyChanged();
             }
         }
 
@@ -43,14 +32,12 @@ namespace TwitchDesktopApp.ViewModel
 
         private void AddUser(object parameter)
         {
-            //Implement what happens when we add a user.
-            //e.g. add it to the model.
-            Console.Write("Being Called!");
+            TwitchAPI.initAPIAdmin(Username);
         }
 
         private bool CanAddUsername(object parameter)
         {
-            return true; //return true always, need to change so if username is connected or somthn
+            return !string.IsNullOrEmpty(Username); //return true always, need to change so if username is connected or somthn
         }
 
 

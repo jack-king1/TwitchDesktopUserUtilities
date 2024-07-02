@@ -37,6 +37,7 @@ namespace TwitchDesktopApp.Model.Users
             }
         }
 
+        //Assign the data recieved from twitch api to class; extracting dispay name and id.
         public TwitchUserDataList Data
         {
             get { return data; }

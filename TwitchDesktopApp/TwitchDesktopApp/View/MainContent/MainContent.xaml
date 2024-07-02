@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TwitchDesktopApp.View.MainContent"
              xmlns:viewModels="clr-namespace:TwitchDesktopApp.ViewModel"
+             xmlns:enums="clr-namespace:TwitchDesktopApp.Model.Enums"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="600">
     
@@ -12,24 +13,29 @@
         <viewModels:UserDataViewModel />
     </UserControl.DataContext>
 
-    
+    <UserControl.Resources>
+        <DataTemplate DataType="{x:Type enums:ViewType}">
+            <ContentControl Content="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type local:SetupPageView}">
+            <local:SetupPageView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type local:ScheduleAdsPageView}">
+            <local:ScheduleAdsPageView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type local:RaidPageView}">
+            <local:RaidPageView />
+        </DataTemplate>
+    </UserControl.Resources>
+
+
     <Grid Background="#161616">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="90*" />
-            <ColumnDefinition Width="10*" />
+            <ColumnDefinition Width="100*" />
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="0">
-            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                <TextBlock Text="Username" Foreground="White" FontSize="30" />
-                <TextBox Text="{Binding Username2, UpdateSourceTrigger=PropertyChanged}" Width="200" Height="50" />
-                <Button Height="20" Content="Submit" Background="Green" Foreground="Wheat" />
-            </StackPanel>
-        </Grid>
 
-
-        <Grid Grid.Column="1" >
-            <Image Source="pack://application:,,,/TwitchDesktopApp;component/Assets/power.png" Width="34" Height="34" VerticalAlignment="Top" Margin="0,20,0,0" />
         </Grid>
     </Grid>
 </UserControl>

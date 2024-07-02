@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="TwitchDesktopApp.View.MainContent.SetupPageView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TwitchDesktopApp.View.MainContent"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="600">
+    <Grid>
+        <TextBlock Text="This is the Setup Page" />
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock HorizontalAlignment="Center" Text="Username" Foreground="White" FontSize="30" />
+            <TextBox FontSize="32" Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" Width="400" Height="50" />
+            <Button Command="{Binding AddUserCommand}" Height="20" Content="Submit" Background="Green" Foreground="Wheat" />
+        </StackPanel>
+    </Grid>
+</UserControl>
