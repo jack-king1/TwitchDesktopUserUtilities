@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="600">
     <Grid>
-        <TextBlock Text="This is the Setup Page" />
+        <TextBlock Foreground="White" Text="This is the Setup Page" />
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock HorizontalAlignment="Center" Text="Username" Foreground="White" FontSize="30" />
             <TextBox FontSize="32" Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" Width="400" Height="50" />

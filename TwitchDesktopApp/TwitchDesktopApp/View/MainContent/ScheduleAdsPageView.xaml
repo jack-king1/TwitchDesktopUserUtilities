@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <TextBlock Text="This is the Schedule Page" />
+        <TextBlock Foreground="White" Text="This is the Schedule Page" />
 
     </Grid>
 </UserControl>

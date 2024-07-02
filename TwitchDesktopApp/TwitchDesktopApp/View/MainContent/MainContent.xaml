@@ -10,32 +10,16 @@
              d:DesignHeight="450" d:DesignWidth="600">
     
     <UserControl.DataContext>
-        <viewModels:UserDataViewModel />
+        <viewModels:MainContentViewModel />
     </UserControl.DataContext>
 
     <UserControl.Resources>
-        <DataTemplate DataType="{x:Type enums:ViewType}">
-            <ContentControl Content="{Binding}"/>
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type local:SetupPageView}">
-            <local:SetupPageView />
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type local:ScheduleAdsPageView}">
-            <local:ScheduleAdsPageView />
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type local:RaidPageView}">
-            <local:RaidPageView />
-        </DataTemplate>
     </UserControl.Resources>
 
+    <!--https://stackoverflow.com/questions/68968513/best-way-to-have-a-wpf-window-switching-between-views-->
+<!-- Plan on using multiple grids and having an enum to keep track of which one is active.This would be in the userControl.xaml.cs
+    -->
+    <Grid Grid.Column="0">
 
-    <Grid Background="#161616">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100*" />
-        </Grid.ColumnDefinitions>
-
-        <Grid Grid.Column="0">
-
-        </Grid>
     </Grid>
 </UserControl>
